@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Main from './containers/main';
+import { ConfigProvider } from 'antd';
 import reportWebVitals from './reportWebVitals';
-
+import zhCN from 'antd/lib/locale/zh_CN';
+import { HashRouter } from 'react-router-dom';
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <HashRouter>
+      <ConfigProvider locale={zhCN}>
+        <Main />
+      </ConfigProvider>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
