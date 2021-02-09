@@ -1,7 +1,7 @@
 import styles from './index.module.scss';
 import Menu from '../menu';
 
-function Home() {
+const Home = () => {
   return (
     <div className={styles.homeBox} >
       <div className={styles.homeHeader}>
