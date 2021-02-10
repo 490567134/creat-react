@@ -1,6 +1,6 @@
 
 import Menu from '../menu';
-function About() {
+const About = () => {
   return (
     <div>
       about

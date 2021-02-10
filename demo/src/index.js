@@ -5,14 +5,29 @@ import Main from './containers/main';
 import { ConfigProvider } from 'antd';
 import reportWebVitals from './reportWebVitals';
 import zhCN from 'antd/lib/locale/zh_CN';
+
 import { HashRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+
+import appReducer from './containers/indexReducer';
+import rootSaga from './containers/indexSaga';
+
+const sagaMiddleware = createSagaMiddleware();
+const middlewares = [sagaMiddleware]
+const store = createStore(appReducer, applyMiddleware(...middlewares))
+sagaMiddleware.run(rootSaga)
+
 ReactDOM.render(
   <React.StrictMode>
-    <HashRouter>
-      <ConfigProvider locale={zhCN}>
-        <Main />
-      </ConfigProvider>
-    </HashRouter>
+    <Provider store={store}>
+      <HashRouter>
+        <ConfigProvider locale={zhCN}>
+          <Main />
+        </ConfigProvider>
+      </HashRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
