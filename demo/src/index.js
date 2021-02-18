@@ -7,10 +7,10 @@ import reportWebVitals from './reportWebVitals';
 import zhCN from 'antd/lib/locale/zh_CN';
 
 import { HashRouter } from 'react-router-dom';
+
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-
 import appReducer from './containers/indexReducer';
 import rootSaga from './containers/indexSaga';
 
