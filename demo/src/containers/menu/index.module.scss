@@ -1,3 +1,7 @@
 .menuBox {
   display: flex;
+  justify-content: space-between;
+  .menuBtnBox:first-child {
+    margin-right: 20px;
+  }
 }
