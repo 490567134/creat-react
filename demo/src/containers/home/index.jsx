@@ -1,6 +1,6 @@
 import styles from './index.module.scss';
 import React, { useEffect } from 'react';
-import Menu from '../menu';
+
 import { connect } from 'react-redux';
 import { homeAction } from '../home/homeAction';
 // import { Button } from 'antd';
@@ -23,7 +23,7 @@ const Home = (props) => {
         })}
       </div>
       {/* <Button type="primary">Primary Button</Button> */}
-      <Menu />
+    
     </div >
   )
 }

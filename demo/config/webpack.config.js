@@ -555,6 +555,11 @@ module.exports = function (webpackEnv) {
             // Make sure to add the new loader(s) before the "file" loader.
           ],
         },
+        {
+          test:/\.tsx?$/,
+          use:'ts-loader',
+          exclude:/node_modules/ //表示node_modules中的tsx文件不做处理
+        }
       ],
     },
     plugins: [
