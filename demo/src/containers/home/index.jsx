@@ -1,9 +1,9 @@
 import styles from './index.module.scss';
 import React, { useEffect } from 'react';
-import Menu from '../menu';
+
 import { connect } from 'react-redux';
 import { homeAction } from '../home/homeAction';
-import { Button } from 'antd';
+// import { Button } from 'antd';
 const Home = (props) => {
   const { list } = props
   useEffect(() => {
@@ -21,9 +21,9 @@ const Home = (props) => {
             <div key={item}>{item}</div>
           )
         })}
-        <Button type="primary">Primary Button</Button>
       </div>
-      <Menu />
+      {/* <Button type="primary">Primary Button</Button> */}
+    
     </div >
   )
 }

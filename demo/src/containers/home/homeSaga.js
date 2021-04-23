@@ -1,6 +1,5 @@
 import { homeAction } from "./homeAction";
-import { call, put, takeLatest, all, takeEvery } from 'redux-saga/effects'
-import axios from 'axios';
+import { put, takeLatest } from 'redux-saga/effects'
 
 function* getList() {
   const url = '1111111111111111'
