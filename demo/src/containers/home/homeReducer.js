@@ -2,7 +2,7 @@ import Immutable from 'module';
 import { homeAction } from './homeAction'
 const initState = {
   loading: false,
-  list: []
+  list2: [1, 2, 3, 4, 5, 6,7]
 }
 
 const homeReducer = (state = initState, action) => {

@@ -1,6 +1,9 @@
 .menuBox {
   display: flex;
-  .menuBtnBox:first-child {
+  .menuBtnBox {
     margin-right: 20px;
+    &:last-child{
+      margin-right: 0;
+    }
   }
 }

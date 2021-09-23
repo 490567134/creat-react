@@ -14,6 +14,11 @@ const Menu = () => {
           <Link to="/about">go about</Link>
         </Button>
       </div>
+      <div className={styles.menuBtnBox}>
+        <Button type='primary'>
+          <Link to="/hookexercise">go HookExercise</Link>
+        </Button>
+      </div>
     </div>
   )
 }
