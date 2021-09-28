@@ -6,7 +6,6 @@ function* getList() {
   try {
     // const res = yield call(axios.get, url)
     const list = [1, 2, 3, 4, 5]
-    console.log(list,'dfsf');
     yield put({
       type: hookExerciseAction.changeStore,
       payload: {
