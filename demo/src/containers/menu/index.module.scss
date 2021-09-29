@@ -1,5 +1,6 @@
 .menuBox {
   display: flex;
+  justify-content: space-around;
   .menuBtnBox {
     margin-right: 20px;
     &:last-child{

@@ -2,7 +2,7 @@ import styles from './index.module.scss';
 import React, { useEffect } from 'react';
 
 import { connect } from 'react-redux';
-import { homeAction } from '../home/homeAction';
+import { homeAction } from './homeAction';
 // import { Button } from 'antd';
 const Home = (props) => {
   const { list } = props
@@ -16,14 +16,14 @@ const Home = (props) => {
         home page
       </div>
       <div>
-        {list.map(item => {
+        {list && list.map(item => {
           return (
             <div key={item}>{item}</div>
           )
         })}
       </div>
       {/* <Button type="primary">Primary Button</Button> */}
-    
+
     </div >
   )
 }

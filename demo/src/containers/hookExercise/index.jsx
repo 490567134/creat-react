@@ -1,68 +1,80 @@
 import styles from './index.module.scss';
-import React, { useEffect, useState, useContext, useRef, useReducer } from 'react';
-
+import React, { Component, useEffect, useState, useContext, useRef, useReducer } from 'react';
+import ChildComponent from "./childComponent";
 import { connect } from 'react-redux';
 import { hookExerciseAction } from './hookExerciseAction';
+
 const MyContext = React.createContext();
-// import { Button } from 'antd';
 const HookExercise = (props) => {
-  // const { list } = props
-  // const [data, setData] = useState([1, 2, 3])
-  // useEffect(() => {
-  //   props.getList()
-  //   const timer = setTimeout(() => {
-  //     setData([1, 2, 3, 4])
-  //   }, 2000)
-  //   setTimeout(() => {
-  //     setData([1, 2, 3, 4, 5])
-  //   }, 3000)
-  //   return () => {
-  //     clearTimeout(timer)
-  //   }
-  // }, [])
+  const { list } = props
+  const [data, setData] = useState([1, 2, 3])
+  console.log('parent didmount');
+  useEffect(() => {
+    props.getList()
+    const timer = setTimeout(() => {
+      setData([1, 2, 3, 4])
+    }, 2000)
+    setTimeout(() => {
+      setData([1, 2, 3, 4, 5])
+    }, 3000)
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [])
 
-  // useEffect(() => {
-  //   console.log(data, 'data变化了');
-  // }, [data])
+  useEffect(() => {
+    console.log(data, 'data变化了');
+  }, [data])
 
 
-  // return (
-  //   <div className={styles.homeBox} >
-  //     <div className={styles.homeHeader}>
-  //       HookExercise page
-  //     </div>
-  //   </div >
-  // )
+  return (
+    <div className={styles.homeBox} >
+      <div className={styles.homeHeader}>
+        <button onClick={() => { console.log('click'); setData([7, 8]) }}>改变data</button>
+        <p>
+          {data.map((item, index) => {
+            return (
+              <span key={index} className={styles.everyData}>{item}</span>
+            )
+          })}
+        </p>
+        <b>parent Component</b>
+        <ChildComponent  visible={false} ccc={"ccc"}/>
+      </div>
+    </div >
+  )
 
   // useContext
-  const [value, setValue] = useState("init");
-  return (
-    <div>
-      {(() => {
-        console.log("render");
-        return null;
-      })()}
-      <button onClick={() => { console.log('click：更新value'); setValue(`${Date.now()}_newValue`) }}>
-        改变value
-      </button>
-      <MyContext.Provider value={value}>
-        <Child1 />
-        <Child2 />
-      </MyContext.Provider>
-    </div>
-  );
+  // const [value, setValue] = useState("init");
+  // return (
+  //   <div>
+  //     {(() => {
+  //       console.log("render");
+  //       return null;
+  //     })()}
+  //     <button onClick={() => { console.log('click：更新value'); setValue(`${Date.now()}_newValue`) }}>
+  //       改变value
+  //     </button>
+  //     <MyContext.Provider value={value}>
+  //       <Child1 />
+  //       <Child2 />
+  //     </MyContext.Provider>
+  //   </div>
+  // );
+
   //useRef 
-  const onButtonClick = () => {
-    // `current` 指向已挂载到 DOM 上的文本输入元素
-    inputEl.current.focus();
-  };
-  const inputEl = useRef(null);
-  return (
-    <>
-      <input ref={inputEl} type="text" />
-      <button onClick={onButtonClick}>Focus the input</button>
-    </>
-  );
+  // const onButtonClick = () => {
+  //   // `current` 指向已挂载到 DOM 上的文本输入元素
+  //   inputEl.current.focus();
+  // };
+  // const inputEl = useRef(null);
+  // return (
+  //   <>
+  //     <input ref={inputEl} type="text" />
+  //     <button onClick={onButtonClick}>Focus the input</button>
+  //   </>
+  // );
+
   // useReducer
   // const initialState = { count: 0 };
 
@@ -116,16 +128,16 @@ const HookExercise = (props) => {
 // }
 
 
-const Child1 = () => {
-  const value = useContext(MyContext);
-  console.log("Child1-value", value);
-  return <div>Child1-value: {value}</div>;
-}
+// const Child1 = () => {
+//   const value = useContext(MyContext);
+//   console.log("Child1-value", value);
+//   return <div>Child1-value: {value}</div>;
+// }
 
-const Child2 = () => {
-  console.log("Child2")
-  return <div>Child2</div>;
-}
+// const Child2 = () => {
+//   console.log("Child2")
+//   return <div>Child2</div>;
+// }
 
 
 
